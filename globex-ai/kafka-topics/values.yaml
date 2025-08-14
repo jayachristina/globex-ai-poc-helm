@@ -7,6 +7,12 @@ kafka:
     - name: reviews.intake
       partitions: 1
       retention: -1
+    - name: reviews.processed
+      partitions: 1
+      retention: -1
+    - name: reviews.errors
+      partitions: 1
+      retention: -1
   namespace: 
 argocd:
   enabled: true
