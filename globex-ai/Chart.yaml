@@ -11,3 +11,9 @@ dependencies:
   - name: kafka-topics
     version: 0.1.0
     repository: file://kafka-topics
+  - name: globex-db
+    version: 0.1.0
+    repository: file://globex-db
+  - name: globex-store-app
+    version: 0.1.0
+    repository: file://globex-store-app
