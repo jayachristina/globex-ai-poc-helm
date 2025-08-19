@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mail-mcp.name" . }}
+  labels:
+    {{- include "mail-mcp.labels" . | nindent 4 }}
+  annotations:
+    {{- include "mail-mcp.argocd-syncwave" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: {{ .Values.service.portName }}
+      port: {{ .Values.service.port }}
+      protocol: TCP
+      targetPort: {{ .Values.service.containerPort }}
+  selector:
+    {{- include "mail-mcp.selectorLabels" . | nindent 4 }}
