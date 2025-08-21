@@ -20,3 +20,6 @@ dependencies:
   - name: mail-mcp
     version: 0.1.0
     repository: file://mail-mcp
+  - name: review-processor
+    version: 0.1.0
+    repository: file://review-processor
