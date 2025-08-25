@@ -23,3 +23,6 @@ dependencies:
   - name: review-processor
     version: 0.1.0
     repository: file://review-processor
+  - name: review-summarizer
+    version: 0.1.0
+    repository: file://review-summarizer
