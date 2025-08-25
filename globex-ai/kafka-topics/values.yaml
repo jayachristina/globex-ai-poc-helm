@@ -13,10 +13,13 @@ kafka:
     - name: reviews.errors
       partitions: 1
       retention: -1
-    - name: reviews.summarized
+    - name: reviews.summary
       partitions: 1
       retention: -1
-    - name: reviews.summarizer.errors
+    - name: reviews.summary.review
+      partitions: 1
+      retention: -1
+    - name: reviews.summary.errors
       partitions: 1
       retention: -1
   namespace: 
