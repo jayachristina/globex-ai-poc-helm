@@ -98,3 +98,4 @@ oidc:
   enabled: true
   authServer:
   clientId:
+  audience:
