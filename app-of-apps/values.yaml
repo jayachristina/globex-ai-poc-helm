@@ -14,7 +14,7 @@ amqstreams:
           enabled: true
 
         kafka-broker:
-          namespace:
+          namespace: kafka
           nameOverride: kafka
           kafka:
             controller:
@@ -27,12 +27,12 @@ amqstreams:
                       crt: 
                       key: 
           authentication:
-            clientId:
-            clientSecret: 
+            clientId: admin
+            clientSecret: adminpassword
             securityProtocol: SASL_SSL
             saslMechanism: SCRAM-SHA-512
         amq-streams-console:
-          namespace: 
+          namespace: kafka
           subdomain: 
           kafka:
             name: kafka
@@ -115,3 +115,114 @@ mailserver:
   argocd:
     enabled: true
     syncwave: "1"
+
+globexai:
+  applicationName: globex-ai
+  applicationNamespace: openshift-gitops
+  destinationNamespace: globex-ai
+  source:
+    repoUrl:
+    targetRevision:
+    path:
+    helm:
+      values:
+        kafka-cluster: &kafka
+          bootstrapServer: kafka-kafka-bootstrap.kafka.svc.cluster.local:9092
+          securityProtocol: SASL_PLAINTEXT
+          saslMechanism: SCRAM-SHA-512
+          clientId: globex
+          clientSecret: globex
+        kafka-broker:
+          namespace: kafka
+          nameOverride: kafka
+        kafka-topics:
+          kafka:
+            namespace: kafka
+            cluster: kafka
+        globex-db:
+          pgsql:
+            adminPassword: adminpassword
+        mail-mcp:
+          route:
+            enabled: true
+          mailserver:
+            host: mail-server.mail-server.svc.cluster.local
+          oidc:
+            enabled: true
+            authServer: 
+            realm: mcp
+            clientId: mcp-client
+            audience: mcp
+
+        review-processor:
+          kafka:
+            <<: *kafka
+
+          llm:
+            moderation:
+              modelName:
+              apiKey:
+              baseUrl:
+            emailWriter:
+              modelName:
+              apiKey:
+              baseUrl:
+            sentiment:
+              modelName:
+              apiKey:
+              baseUrl:
+
+          mcp:
+            mail:
+              url: http://mail-mcp.globex-ai.svc.cluster.local:8080/mcp
+              healthEnabled: false
+          
+          customerAPI:
+            url: http://globex-store-app.globex-ai.svc.cluster.local:8080
+
+          mongodb:
+            connectionString: mongodb://mongodb.mongodb.svc.cluster.local:27017
+            database: reviews
+            collection: reviews
+            username: globex
+            password: globex
+
+          oidc:
+            authServer: 
+            realm: mcp
+            clientId: mcp-client
+            clientSecret:
+            scopes: mcp-audience
+
+        review-summarizer:
+          kafka:
+            <<: *kafka
+
+          mongodb:
+            connectionString: mongodb://mongodb.mongodb.svc.cluster.local:27017
+            database: reviews
+            username: globex
+            password: globex
+            collection:
+              reviews: reviews
+              summary: summary
+
+          llm:
+            summary:
+              modelName:
+              apiKey:
+              baseUrl:
+
+        keycloak-realmimport-mcp:
+          namespace: keycloak
+          keycloak:
+            name: keycloak
+          realm:
+            name: mcp
+          client:
+            mcp:
+              name: mcp-client
+              secret:
+  argocd:
+    enabled: true
+    syncwave: "2"
