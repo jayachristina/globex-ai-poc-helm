@@ -97,5 +97,6 @@ mailserver:
 oidc:
   enabled: true
   authServer:
+  realm:
   clientId:
   audience:

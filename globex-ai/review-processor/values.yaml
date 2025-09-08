@@ -91,11 +91,11 @@ argocd:
   syncwave: "1"
 
 kafka:
-  bootstrapServer: ""
-  securityProtocol: ""
-  saslMechanism: ""
-  clientId: ""
-  clientSecret: ""
+  bootstrapServer:
+  securityProtocol:
+  saslMechanism:
+  clientId:
+  clientSecret:
   topic:
     intake: reviews.intake
     processed: reviews.processed
@@ -150,6 +150,7 @@ mongodb:
 
 oidc:
   authServer:
+  realm:
   clientId:
   clientSecret:
   scopes:
