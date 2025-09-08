@@ -1,3 +1,14 @@
+global:
+  kafka:
+    name: &kafka kafka
+    namespace: &kafkanamespace kafka
+    kafka-cluster: &kafkacluster
+      bootstrapServer: kafka-kafka-bootstrap.kafka.svc.cluster.local:9092
+      securityProtocol: SASL_PLAINTEXT
+      saslMechanism: SCRAM-SHA-512
+      clientId: globex
+      clientSecret: globex
+
 amqstreams:
   applicationName: amqstreams
   applicationNamespace: openshift-gitops
@@ -14,8 +25,8 @@ amqstreams:
           enabled: true
 
         kafka-broker:
-          namespace: kafka
-          nameOverride: kafka
+          namespace: *kafkanamespace
+          nameOverride: *kafka
           kafka:
             controller:
               enabled: true
@@ -32,19 +43,19 @@ amqstreams:
             securityProtocol: SASL_SSL
             saslMechanism: SCRAM-SHA-512
         amq-streams-console:
-          namespace: kafka
+          namespace: *kafkanamespace
           subdomain: 
           kafka:
-            name: kafka
-            namespace: 
+            name: *kafka
+            namespace: *kafkanamespace
             authentication:
               saslMechanism: SASL_SSL
               securityProtocol: SCRAM-SHA-512
             authorization: simple
         kafka-topics:
           kafka:
-            namespace: 
-            cluster: kafka
+            namespace: *kafkanamespace
+            cluster: *kafka
   argocd:
     enabled: true
     syncwave: "1"
@@ -126,19 +137,13 @@ globexai:
     path: globex-ai
     helm:
       values:
-        kafka-cluster: &kafka
-          bootstrapServer: kafka-kafka-bootstrap.kafka.svc.cluster.local:9092
-          securityProtocol: SASL_PLAINTEXT
-          saslMechanism: SCRAM-SHA-512
-          clientId: globex
-          clientSecret: globex
         kafka-broker:
-          namespace: kafka
-          nameOverride: kafka
+          namespace: *kafkanamespace
+          nameOverride: *kafka
         kafka-topics:
           kafka:
-            namespace: kafka
-            cluster: kafka
+            namespace: *kafkanamespace
+            cluster: *kafka
         globex-db:
           pgsql:
             adminPassword: adminpassword
@@ -156,7 +161,7 @@ globexai:
 
         review-processor:
           kafka:
-            <<: *kafka
+            <<: *kafkacluster
 
           llm:
             moderation:
@@ -196,7 +201,7 @@ globexai:
 
         review-summarizer:
           kafka:
-            <<: *kafka
+            <<: *kafkacluster
 
           mongodb:
             connectionString: mongodb://mongodb.mongodb.svc.cluster.local:27017
