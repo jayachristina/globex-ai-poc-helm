@@ -3,9 +3,9 @@ amqstreams:
   applicationNamespace: openshift-gitops
   destinationNamespace: kafka
   source:
-    repoUrl:
-    targetRevision:
-    path:
+    repoUrl: https://github.com/btison/globex-ai-poc-helm.git
+    targetRevision: app-of-apps
+    path: amq-streams
     helm:
       values:
         kafka:
@@ -54,9 +54,9 @@ keycloak:
   applicationNamespace: openshift-gitops
   destinationNamespace: keycloak
   source:
-    repoUrl: 
-    targetRevision:
-    path:
+    repoUrl: https://github.com/btison/globex-ai-poc-helm.git
+    targetRevision: app-of-apps
+    path: keycloak
     helm:
       values:
         keycloak:
@@ -74,9 +74,9 @@ mongodb:
   applicationNamespace: openshift-gitops
   destinationNamespace: mongodb
   source:
-    repoUrl: 
-    chart:
-    targetRevision:
+    repoUrl: https://charts.bitnami.com/bitnami
+    chart: mongodb
+    targetRevision: 16.5.44
     helm:
       values:
         global:
@@ -109,9 +109,9 @@ mailserver:
   applicationNamespace: openshift-gitops
   destinationNamespace: mail-server
   source:
-    repoUrl:
-    targetRevision:
-    path:
+    repoUrl: https://github.com/btison/globex-ai-poc-helm.git
+    targetRevision: app-of-apps
+    path: mail-server
   argocd:
     enabled: true
     syncwave: "1"
@@ -121,9 +121,9 @@ globexai:
   applicationNamespace: openshift-gitops
   destinationNamespace: globex-ai
   source:
-    repoUrl:
-    targetRevision:
-    path:
+    repoUrl: https://github.com/btison/globex-ai-poc-helm.git
+    targetRevision: app-of-apps
+    path: globex-ai
     helm:
       values:
         kafka-cluster: &kafka
