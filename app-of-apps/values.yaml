@@ -49,8 +49,8 @@ amqstreams:
             name: *kafka
             namespace: *kafkanamespace
             authentication:
-              saslMechanism: SASL_SSL
-              securityProtocol: SCRAM-SHA-512
+              securityProtocol: SASL_SSL
+              saslMechanism: SCRAM-SHA-512
             authorization: simple
         kafka-topics:
           kafka:
