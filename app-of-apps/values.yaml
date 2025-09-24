@@ -228,6 +228,10 @@ globexai:
             mcp:
               name: mcp-client
               secret:
+        review-service:
+          kafka:
+            <<: *kafkacluster
+
   argocd:
     enabled: true
     syncwave: "2"
