@@ -180,7 +180,6 @@ globexai:
           mcp:
             mail:
               url: http://mail-mcp.globex-ai.svc.cluster.local:8080/mcp
-              healthEnabled: false
           
           customerAPI:
             url: http://globex-store-app.globex-ai.svc.cluster.local:8080

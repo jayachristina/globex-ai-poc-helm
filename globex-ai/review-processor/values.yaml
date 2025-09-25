@@ -136,7 +136,6 @@ mcp:
     url:
     logRequests: true
     logResponses: true
-    healthEnabled: true
  
 customerAPI:
   url:
