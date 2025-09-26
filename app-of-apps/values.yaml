@@ -227,9 +227,18 @@ globexai:
             mcp:
               name: mcp-client
               secret:
+
         review-service:
           kafka:
             <<: *kafkacluster
+          mongodb:
+            connectionString: mongodb://mongodb.mongodb.svc.cluster.local:27017
+            database: reviews
+            username: globex
+            password: globex
+            collection:
+              reviews: reviews
+              summary: summary
 
   argocd:
     enabled: true
