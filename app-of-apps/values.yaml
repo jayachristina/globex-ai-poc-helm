@@ -228,6 +228,15 @@ globexai:
               name: mcp-client
               secret:
 
+        keycloak-realmimport-globex:
+          namespace: keycloak
+          keycloak:
+            name: keycloak
+          realm:
+            name: globex
+          client:
+            gateway: globex-web-gateway
+
         review-service:
           kafka:
             <<: *kafkacluster

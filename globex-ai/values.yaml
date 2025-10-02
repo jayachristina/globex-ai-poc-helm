@@ -3,6 +3,11 @@ keycloak-realmimport-mcp:
     enabled: true
     syncwave: "-2"
 
+keycloak-realmimport-globex:
+  argocd:
+    enabled: true
+    syncwave: "-2"
+
 kafka-broker:
   argocd:
     enabled: true
