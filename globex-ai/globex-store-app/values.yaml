@@ -74,3 +74,7 @@ globexDb:
   name: globex-db
   secret:
     name: globex-db
+
+argocd:
+  enabled: true
+  syncwave: "0"

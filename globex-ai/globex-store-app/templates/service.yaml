@@ -4,6 +4,8 @@ metadata:
   name: {{ include "globex-store-app.name" . }}
   labels:
     {{- include "globex-store-app.labels" . | nindent 4 }}
+  annotations:
+    {{- include "globex-store-app.argocd-syncwave" . | nindent 4 }}
 spec:
   ports:
   - name: {{ .Values.service.portName }}

@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/connects-to: |
-      [{"apiVersion":"apps/v1","kind":"Deployment","name":"{{ .Values.globexDb.name }}"}]
+    {{- include "globex-store-app.argocd-syncwave" . | nindent 4 }}
   labels:
     {{- include "globex-store-app.labels" . | nindent 4 }}
     app.openshift.io/runtime: quarkus

@@ -5,6 +5,8 @@ metadata:
   name: {{ include "globex-store-app.name" . }}
   labels:
     {{- include "globex-store-app.labels" . | nindent 4 }}
+  annotations:
+    {{- include "globex-store-app.argocd-syncwave" . | nindent 4 }}
 spec:
   {{ if .Values.route.host }}
   host: {{ .Values.route.host }}
