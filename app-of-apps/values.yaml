@@ -249,6 +249,13 @@ globexai:
               reviews: reviews
               summary: summary
 
+        globex-web:
+          sso:
+            authServer:
+            realm: globex
+            client: globex-web-gateway
+          subdomain:
+
   argocd:
     enabled: true
     syncwave: "2"

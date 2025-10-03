@@ -47,3 +47,8 @@ review-service:
   argocd:
     enabled: true
     syncwave: "1"
+
+globex-web:
+  argocd:
+    enabled: true
+    syncwave: "1"
