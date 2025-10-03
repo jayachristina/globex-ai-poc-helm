@@ -66,7 +66,7 @@ spec:
             - name: SSO_AUTHORITY
               value: {{ .Values.sso.authServer }}/realms/{{ .Values.sso.realm }}
             - name: SSO_REDIRECT_LOGOUT_URI
-              value: https://{{ include "globex-web.name" . }}-{{ .Release.Namespace }}.{{ .Values.subDomain }}/home
+              value: https://{{ include "globex-web.name" . }}-{{ .Release.Namespace }}.{{ .Values.subdomain }}/home
             - name: SSO_LOG_LEVEL
               value: '{{ .Values.sso.logLevel }}'
             {{- end }}
