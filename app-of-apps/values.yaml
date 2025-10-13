@@ -258,6 +258,10 @@ globexai:
             client: globex-web-gateway
           subdomain:
 
+        activity-tracking:
+          kafka:
+            <<: *kafkacluster
+
   argocd:
     enabled: true
     syncwave: "2"

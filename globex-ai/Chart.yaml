@@ -38,3 +38,6 @@ dependencies:
   - name: globex-web
     version: 0.1.0
     repository: file://globex-web
+  - name: activity-tracking
+    version: 0.1.0
+    repository: file://activity-tracking

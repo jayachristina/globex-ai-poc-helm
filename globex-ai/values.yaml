@@ -52,3 +52,8 @@ globex-web:
   argocd:
     enabled: true
     syncwave: "1"
+
+activity-tracking:
+  argocd:
+    enabled: true
+    syncwave: "1"
