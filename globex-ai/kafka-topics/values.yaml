@@ -5,22 +5,22 @@ kafka:
   replicationFactor: 3
   topics:
     - name: reviews.intake
-      partitions: 1
+      partitions: 5
       retention: -1
     - name: reviews.processed
-      partitions: 1
+      partitions: 5
       retention: -1
     - name: reviews.errors
-      partitions: 1
+      partitions: 5
       retention: -1
     - name: reviews.summary
-      partitions: 1
+      partitions: 5
       retention: -1
     - name: reviews.summary.review
-      partitions: 1
+      partitions: 5
       retention: -1
     - name: reviews.summary.errors
-      partitions: 1
+      partitions: 5
       retention: -1
     - name: globex.tracking
       partitions: 1
