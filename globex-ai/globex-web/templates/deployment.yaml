@@ -60,6 +60,8 @@ spec:
               value: {{ .Values.reviewService.url }}{{ .Values.reviewService.reviewPath }}
             - name: API_FETCH_PROD_REVIEWS_SUMMARY
               value: {{ .Values.reviewService.url }}{{ .Values.reviewService.summaryPath }}
+            - name: API_SAVE_PROD_REVIEW
+              value: {{ .Values.reviewService.url }}{{ .Values.reviewService.submitReviewPath }}
             {{- if .Values.sso.enabled }}
             - name: SSO_CUSTOM_CONFIG
               value: {{ .Values.sso.client }}

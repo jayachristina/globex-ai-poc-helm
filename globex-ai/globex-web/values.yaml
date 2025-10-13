@@ -85,6 +85,7 @@ recommendationEngine:
 reviewService:
   url: http://review-service:8080
   reviewPath: /review/product
+  submitReviewPath: /review/submit
   summaryPath: /review/summary
 
 sso:
