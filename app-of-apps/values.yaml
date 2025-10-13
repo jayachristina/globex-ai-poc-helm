@@ -262,6 +262,10 @@ globexai:
           kafka:
             <<: *kafkacluster
 
+        recommendation-engine:
+          kafka:
+            <<: *kafkacluster
+
   argocd:
     enabled: true
     syncwave: "2"
