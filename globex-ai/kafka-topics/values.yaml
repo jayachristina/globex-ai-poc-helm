@@ -22,6 +22,9 @@ kafka:
     - name: reviews.summary.errors
       partitions: 1
       retention: -1
+    - name: globex.tracking
+      partitions: 1
+      retention: -1
   namespace: 
 argocd:
   enabled: true
