@@ -93,6 +93,10 @@ mongodb:
         global:
           security:
             allowInsecureImages: true
+          compatibility:
+            openshift:
+              adaptSecurityContext: force
+            omitEmptySeLinuxOption: true
         architecture: standalone
         image:
           registry: quay.io
@@ -101,8 +105,6 @@ mongodb:
         podSecurityContext:
           enabled: false
           fsGroup: ""
-        containerSecurityContext:
-          runAsUser: 1001080001
         auth:
           rootPassword:
           usernames:
