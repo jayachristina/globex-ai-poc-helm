@@ -4,7 +4,7 @@ image:
   repository: quay.io/cloud-architecture-workshop/globex-web-reviews
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: d2226cf
+  tag: c073ed8
 
 serviceAccount:
   create: true
