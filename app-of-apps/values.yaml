@@ -134,7 +134,7 @@ globexai:
   applicationNamespace: openshift-gitops
   destinationNamespace: globex-ai
   source:
-    repoUrl: https://github.com/btison/globex-ai-poc-helm.git
+    repoUrl: https://github.com/globex-ai/helm.git
     targetRevision: main
     path: globex-ai
     helm:
