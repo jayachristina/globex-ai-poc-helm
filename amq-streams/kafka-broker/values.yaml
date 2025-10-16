@@ -25,7 +25,7 @@ kafka:
     minInsyncReplicas: 2
   listener:
     external:
-      enabled: true
+      enabled: false
       type: route
       tls:
         secret:

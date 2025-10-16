@@ -40,7 +40,7 @@ amqstreams:
           authentication:
             clientId: admin
             clientSecret: adminpassword
-            securityProtocol: SASL_SSL
+            securityProtocol: SASL_PLAINTEXT
             saslMechanism: SCRAM-SHA-512
         amq-streams-console:
           namespace: *kafkanamespace
@@ -142,6 +142,7 @@ globexai:
         kafka-broker:
           namespace: *kafkanamespace
           nameOverride: *kafka
+
         kafka-topics:
           kafka:
             namespace: *kafkanamespace
