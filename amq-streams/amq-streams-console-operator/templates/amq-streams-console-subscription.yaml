@@ -3,7 +3,7 @@ apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
   name: streamshub-operators
-  namespace: openshift-operators
+  namespace: kafka
 spec:
   targetNamespaces: []
   upgradeStrategy: Default
@@ -13,7 +13,7 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: CatalogSource
 metadata:
   name: streamshub-console-catalog
-  namespace: openshift-operators  
+  namespace: kafka
 spec:
   displayName: StreamsHub
   image: quay.io/streamshub/console-operator-catalog:latest
@@ -25,7 +25,7 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: streamshub-console-sub
-  namespace: openshift-operators  
+  namespace: kafka
 spec:
   name: streamshub-console-operator
   channel: alpha
