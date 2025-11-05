@@ -30,4 +30,4 @@ spec:
   name: streamshub-console-operator
   channel: alpha
   source: streamshub-console-catalog
-  sourceNamespace: default
+  sourceNamespace: kafka
