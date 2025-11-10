@@ -14,8 +14,8 @@ amqstreams:
   applicationNamespace: openshift-gitops
   destinationNamespace: kafka
   source:
-    repoUrl: https://github.com/jayachristina/globex-ai-poc-helm.git
-    targetRevision: strimzi
+    repoUrl: https://github.com/learn-quarkus/ibm-globex-ai-helm/globex-ai-poc-helm.git
+    targetRevision: main
     path: amq-streams
     helm:
       values:
@@ -65,8 +65,8 @@ keycloak:
   applicationNamespace: openshift-gitops
   destinationNamespace: keycloak
   source:
-    repoUrl: https://github.com/jayachristina/globex-ai-poc-helm.git
-    targetRevision: strimzi
+    repoUrl: https://github.com/learn-quarkus/ibm-globex-ai-helm.git
+    targetRevision: main
     path: keycloak
     helm:
       values:
@@ -122,8 +122,8 @@ mailserver:
   applicationNamespace: openshift-gitops
   destinationNamespace: mail-server
   source:
-    repoUrl: https://github.com/jayachristina/globex-ai-poc-helm.git
-    targetRevision: strimzi
+    repoUrl: https://github.com/learn-quarkus/ibm-globex-ai-helm.git
+    targetRevision: main
     path: mail-server
   argocd:
     enabled: true
@@ -134,8 +134,8 @@ globexai:
   applicationNamespace: openshift-gitops
   destinationNamespace: globex-ai
   source:
-    repoUrl: https://github.com/jayachristina/globex-ai-poc-helm.git
-    targetRevision: strimzi
+    repoUrl: https://github.com/learn-quarkus/ibm-globex-ai-helm.git
+    targetRevision: main
     path: globex-ai
     helm:
       values:
