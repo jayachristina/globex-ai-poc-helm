@@ -4,10 +4,10 @@ fullnameOverride: ""
 namespace: openshift-operators
 
 subscription:
-  channel: amq-streams-3.0.x
+  channel: stable
   installPlanApproval: Automatic
-  name: amq-streams
-  source: redhat-operators
+  name: strimzi-kafka-operator
+  source: community-operators
   sourceNamespace: openshift-marketplace
 
 argocd:

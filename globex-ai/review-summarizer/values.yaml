@@ -100,7 +100,7 @@ kafka:
     intake: reviews.processed
     processed: reviews.summary
     review: reviews.summary.review
-    error: reviews.summarizer.errors
+    error: reviews.summary.errors
   consumerGroup:
     intake: review-summarizer-consumer-grp
 
