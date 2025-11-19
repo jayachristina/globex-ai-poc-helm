@@ -14,7 +14,7 @@ amqstreams:
   applicationNamespace: openshift-gitops
   destinationNamespace: kafka
   source:
-    repoUrl: https://github.com/learn-quarkus/ibm-globex-ai-helm/globex-ai-poc-helm.git
+    repoUrl: https://github.com/learn-quarkus/ibm-globex-ai-helm.git
     targetRevision: main
     path: amq-streams
     helm:
